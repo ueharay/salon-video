@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>サロン広告デモ</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        background-color: #f0f0f0;
+        overflow: hidden; /* スクロールバーを非表示に */
+    }
+    .responsive-video {
+        width: 100%;
+        height: auto;
+        max-height: 100vh; /* ビューポートの高さに合わせる */
+        background: black;
+    }
+    .responsive-video video {
+        width: 100%;
+        height: auto;
+        max-height: 100vh;
+    }
+</style>
+</head>
+<body>
+
+<div class="responsive-video">
+    <video controls autoplay>
+        <source src="img/サロン広告サンプル.mp4" type="video/mp4">
+    </video>
+</div>
+
+<script>
+    // ビデオがクリックされた時にフルスクリーン表示をトリガーする
+    document.querySelector('.responsive-video video').addEventListener('click', function() {
+        if (this.requestFullscreen) {
+            this.requestFullscreen();
+        } else if (this.mozRequestFullScreen) { /* Firefox */
+            this.mozRequestFullScreen();
+        } else if (this.webkitRequestFullscreen) { /* Chrome, Safari & Opera */
+            this.webkitRequestFullscreen();
+        } else if (this.msRequestFullscreen) { /* IE/Edge */
+            this.msRequestFullscreen();
+        }
+    });
+</script>
+
+</body>
+</html>
